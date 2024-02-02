@@ -1,5 +1,6 @@
 # Setup a New Developer Computer
-This script will help with the quick setup and installation of tools and applications for new developers at Vendasta. Tested in Mac OS 10.14 to 12. This script works on both Intel and M1/M2 Macs. 
+This script will help with the quick setup and installation of tools and applications for new developers. 
+This script works on both Intel and M1/M2/M3 Macs. 
 
 You can run this script multiple times without issue. You can also run it on a partially set-up computer and it will only install what is missing.
 
@@ -11,7 +12,7 @@ The script will create/modify `.bash_profile` and `.zprofile` with path and auto
 
 Paste the command below in a Mac OS Terminal:
 ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ECOSurv/new-computer-setup/master/setup-new-computer.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ECOSurv/new-computer-setup/main/setup-new-computer.sh)"
 ```
 
 ## Manual Install Instructions
@@ -66,7 +67,7 @@ compaudit | xargs chmod g-w
 <br>
 
 **Setting Up Pycharm with Python 2.7**\
-As Mac OS has recently removed the bundled copy of Python 2.7, please see [this help document on working with our Legacy Appengine projects](https://vendasta.jira.com/wiki/spaces/RD/pages/1688469847/Pycharm+Setup+for+Legacy+Appengine+Python+2.7)
+As Mac OS has recently removed the bundled copy of Python 2.7
 
 <br>
 
@@ -137,14 +138,6 @@ fi
 	source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
 [ -e "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc" ] && 
 	source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
-
-# Golang
-export GOPRIVATE="github.com/vendasta"
-export GOPROXY="direct"
-export GO111MODULE="on"
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOBIN
 
 # NVM
 # This needs to be after "Setting up Path for Homebrew" to override Homebrew Node
@@ -247,6 +240,8 @@ fpath=(/usr/local/share/zsh-completions $fpath)
    ```sh
    brew install git
    ```
+
+   [git](https://git-scm.com/)
 </details>
 
  
@@ -259,6 +254,8 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 ```sh
 brew install ruby
 ```
+
+[ruby](https://www.ruby-lang.org/en/) 
 </details>
 	   
 
@@ -535,4 +532,3 @@ fi
 ---   
 
 <br>
-

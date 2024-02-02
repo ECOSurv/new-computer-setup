@@ -5,7 +5,7 @@ VERSION="v1.0.0"
 # title           setup-new-computer.sh
 #===============================================================================
 #   A shell script to help with the quick setup and installation of tools and 
-#   applications for new developers at Vendasta.
+#   applications for new developers.
 # 
 #   Quick Instructions:
 #
@@ -21,7 +21,7 @@ VERSION="v1.0.0"
 #      Use the email and name you use for Github
 #
 #   5. Follow the Post Installation Instructions in the Readme:
-README="https://github.com/vendasta/setup-new-computer-script#post-installation-instructions"
+README="https://github.com/ECOSurv/new-computer-setup/#post-installation-instructions"
 #  
 #===============================================================================
 
@@ -191,6 +191,21 @@ printDivider
 printDivider
 
 
+# Create  .zprofile if they dont exist
+printHeading "Prep Bash"
+printDivider
+    echo "✔ Touch ~/.bash_profile"
+        touch ~/.bash_profile
+printDivider
+    # Bash profile
+    if grep --quiet "setup-new-computer.sh" ~/.bash_profile; then
+        echo "✔ .bash_profile already modified. Skipping"
+    else
+        writetoBashProfile
+        echo "✔ Added to .bash_profile"
+    fi
+printDivider
+
 #===============================================================================
 #  Installer: Main Payload
 #===============================================================================
@@ -209,7 +224,7 @@ printHeading "Installing Homebrew"
 printDivider
     if test ! $(which brew); then
         echo "Installing homebrew..."
-        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     else
         echo "✔ Homebrew already installed. Skipping"
     fi
